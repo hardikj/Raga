@@ -32,6 +32,7 @@ app.post("/fetch_file", function(req, res){
 
 });
 
+app.use(express.bodyParser());
 app.use('/static', express.static(__dirname + '/static'));
 app.use('/html', express.static(__dirname + '/html'));
 app.use('/samples', express.static(__dirname + '/samples'));
