@@ -22,15 +22,10 @@ app.get("/index", function(req, res){
     render_html(res, 'html/index.html');
 });
 
-app.get("/file", function(req, res){})
+app.get("/det", function(req, res){
+    render_html(res, 'html/det.html')
+})
 
-app.post("/fetch_file", function(req, res){
-   var file =  req.files.file;
-   var path = file.path;
-   var filename = file.name;
-
-
-});
 
 app.use(express.bodyParser());
 app.use('/static', express.static(__dirname + '/static'));
