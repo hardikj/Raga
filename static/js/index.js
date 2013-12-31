@@ -11,7 +11,7 @@ function Kit(){
 }
 
 Kit.prototype.load = function(){
-    this.strings = ['samples/AH.wav','samples/LlW Kick 3.wav','samples/END.wav']; //,'samples/','samples/'];
+    this.strings = ['samples/bellguitar2.mp3','samples/LlW Kick 3.wav','samples/END.wav']; //,'samples/','samples/'];
 
     for (var i = 0; i < this.strings.length; i++) {
         this.loadSample(this.strings[i], i);
@@ -54,13 +54,12 @@ function playSound(buffer, a) {
     var source = context.createBufferSource(); 
     console.log(source + "\n" + context);
     source.buffer = buffer;                    
-    source.connect(context.destination);
-    source.loop = true;    
+    source.connect(context.destination);   
     source.start(a); 
     kit.source = source;
 }
 
-
+/*
 document.getElementById("s1").onclick = function(){
     playSound(currentKit.stringsBuffer[0], 0);
 }
@@ -74,4 +73,4 @@ document.getElementById("s3").onclick = function() {
     kit.source.stop(0);
 }
 
-
+*/

@@ -4,68 +4,22 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <title>Simpon Says</title>
-        <style type="text/css">
-            body {
-                background-color: rgb(88,20,94);
-                margin: 0;
-                padding: 0;
-            }
-            .block {
-                float:left;
-                height:500px;
-                width: 300px;
-
-            }
-            #header{
-                height: 30px;
-                background-color: black;
-            }
-            #s1{
-                background-color: rgb(240,60,40);
-            }
-            #s2{
-                background-color: rgb(80,180,240);
-            }
-            #s3{
-                background-color: rgb(250,200,40);
-            }
-
-
-        </style>
+        <link rel="stylesheet" type="text/css" href="static/css/main.css">
     </head>    
     <body>   
-        <div id="header">a</div>
-        <div>
-            <div id="s1" class="block">String 1</div>
-            <div id="s2" class="block">String 2</div>
-            <div id="s3" class="block">String 3</div>
+        <div id="header"></div>
+
+        <video id="webcam" autoplay width="640" height="480"></video>
+
+        <canvas id="canvas-source" width="640" height="480">No Canvas support!! go die</canvas>
+        <canvas id="canvas-highlights" width="640" height="480"></canvas>
+        <canvas id="canvas-blended" width="640" height="480">No Canvas support!! go die</canvas>
+        <canvas id="tut" width="640" height="480">No Canvas support!! go die</canvas>
+        <div id="hotSpots">
         </div>
-        <video id="webcam" autoplay width="340" height="480"></video>
+
         <script type="text/javascript" src="/samples/jquery-2.0.3.min.js"></script>
-        <script type="text/javascript">
-            function hasGetUserMedia() {
-                return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
-                    navigator.mozGetUserMedia || navigator.msGetUserMedia);
-            }
-
-            var webcamError = function(e) {
-                alert('Webcam error!', e);
-            };
-
-            var video = $('#webcam')[0];
-            if (navigator.getUserMedia) {
-                navigator.getUserMedia({audio: false, video: true}, function(stream) {
-                    video.src = stream;
-                }, webcamError);
-            } else if (navigator.webkitGetUserMedia) {
-                     navigator.webkitGetUserMedia({audio:false, video:true}, function(stream) {
-                    video.src = window.webkitURL.createObjectURL(stream);
-                }, webcamError);
-            } else {
-                //video.src = 'video.webm'; // fallback.
-            }
-
-        </script>
-        <script src="/static/js/index.js"></script>
+        <script type="text/javascript" src="/static/js/det.js"></script>
+       <script type="text/javascript" src="/static/js/index.js"></script> 
     </body>
 </html>

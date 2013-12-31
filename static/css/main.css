@@ -9,15 +9,31 @@ body {
     background-color: black;
 }
 
-#canvas-source {
-        width: 100%;
+#webcam {
+        display: none;
 }
 
 #canvas-source, #canvas-highlights {
-        display: none;
+        
         position: absolute;
         left: 0;
         top: 0;
+        top: 50px;
+}
+
+#tut {
+    position: absolute;
+    right: 10px;
+    top: 50px;
+}
+
+#hotSpots {
+    position: relative;
+    top: 50px;
+    height: 300px;
+    width: 300px;
+    border: 1em black dotted;
+
 }
 
 #canvas-blended {
