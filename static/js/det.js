@@ -12,25 +12,26 @@ var video = $('#webcam')[0];
 if (navigator.getUserMedia) {
     navigator.getUserMedia({audio: false, video: true}, function(stream) {
         video.src = stream;
+        update();
     }, webcamError);
 } else if (navigator.webkitGetUserMedia) {
          navigator.webkitGetUserMedia({audio:false, video:true}, function(stream) {
         video.src = window.webkitURL.createObjectURL(stream);
+                update();
     }, webcamError);
 } else {
     //video.src = 'video.webm'; // fallback.
 }
 
-//window.hotSpots = [];
 var canvas = $("#tut")[0];
 $(canvas).delay(600).fadeIn();
 var ctx = canvas.getContext('2d');
 
 var lastImageData;
 var canvasSource = $("#canvas-source")[0];
-var canvasBlended = $("#canvas-blended")[0];
+//var canvasBlended = $("#canvas-blended")[0];
 var contextSource = canvasSource.getContext('2d');
-var contextBlended = canvasBlended.getContext('2d');
+//contextBlended = canvasBlended.getContext('2d');
 contextSource.translate(canvasSource.width, 0);
 contextSource.scale(-1, 1);
 
@@ -40,9 +41,6 @@ function update(){
     blend();
     checkAreas();
     requestAnimFrame(update);
-    //$("hotSpots").fadeIn();
-    
-    //timeout = setTimeout(update, 1000/60);
 }
 
 function drawVideo(){
@@ -52,24 +50,17 @@ function drawVideo(){
 
 function blend(){
 
-    //define width and height
     var width = canvasSource.width;
     var height = canvasSource.height;
-
     // get webcam image data
     var sourceData = contextSource.getImageData(0, 0, width, height);
-
     // create an image if the previous image doesn’t exist
     if (!lastImageData) lastImageData = contextSource.getImageData(0, 0, width, height);
-
     // create a ImageData instance to receive the blended result
     var blendedData = contextSource.createImageData(width, height);
-
-    // blend the 2 images
-    //differenceAccuracy(blendedData.data, sourceData.data, lastImageData.data);
+    //diff(blendedData.data, sourceData.data, lastImageData.data);
     // draw the result in a canvas
     //contextBlended.putImageData(blendedData, 0, 0);
-
     gooddiff(blendedData.data, sourceData.data, lastImageData.data)
     ctx.putImageData(blendedData, 0, 0);
     // store the current webcam image
@@ -96,8 +87,8 @@ function checkAreas() {
 
         // avarage is addition of the back coler present in the hotspot
         // i.e (blendedData.data.length/4)*value_of_black 
-        // so if the value of dividing it by (blendedData.data.length/4) is greater that 1
-        // we have some disturbance and this is detection
+        // so if the result of dividion by (blendedData.data.length/4) is greater that 1
+        // we have some disturbance and this is detection!!
         average = Math.round(average / (blendedData.data.length / 4));
         if (average > 20) {
             console.log("ok baby"+average);
@@ -157,16 +148,3 @@ window.requestAnimFrame = (function () {
                                 window.setTimeout(callback, 1000 / 60);
                         };
         })();
-
-
-
-
-
-
-
-
-
-
-
-
-

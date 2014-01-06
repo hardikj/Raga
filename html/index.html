@@ -1,25 +1,43 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <title>Simpon Says</title>
-        <link rel="stylesheet" type="text/css" href="static/css/main.css">
-    </head>    
-    <body>   
-        <div id="header"></div>
-
+<html  lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simpon Says</title>
+    <link rel="stylesheet" href="/static/css/foundation.css" />
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <script src="/static/js/modernizr.js"></script>
+  </head>
+  <body>
+    
+    <div class="nav">
+        <nav class="top-bar" data-topbar data-options="is_hover: false">
+          <ul class="title-bar">
+            <li class="name">
+              <h1> <a href="#">Guitar</a><h1>
+            </li>
+          </ul>
+        </nav>
+    </div>
+    
+    <div class="row">
+      <div class="large-12 columns">
         <video id="webcam" autoplay width="640" height="480"></video>
-
-        <canvas id="canvas-source" width="640" height="480">No Canvas support!! go die</canvas>
-        <canvas id="canvas-highlights" width="640" height="480"></canvas>
-        <canvas id="canvas-blended" width="640" height="480">No Canvas support!! go die</canvas>
-        <canvas id="tut" width="640" height="480">No Canvas support!! go die</canvas>
-        <div id="hotSpots">
+        <div id="source">
+          <div id="hotSpots" class="tut"></div>
+          <canvas id="canvas-source" width="640" height="480">No Canvas support!! go die</canvas>
+          <canvas id="tut" class="tut" width="640" height="480">No Canvas support!! go die</canvas>
         </div>
-
-        <script type="text/javascript" src="/samples/jquery-2.0.3.min.js"></script>
-        <script type="text/javascript" src="/static/js/det.js"></script>
-       <script type="text/javascript" src="/static/js/index.js"></script> 
-    </body>
+      </div>
+    </div>       
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/foundation.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="/static/js/det.js"></script>
+    <script type="text/javascript" src="/static/js/index.js"></script> 
+    <script>
+      //$(document).foundation();
+    </script>
+  </body>
 </html>

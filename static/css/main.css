@@ -4,42 +4,35 @@ body {
     padding: 0;
 }
 
-#header{
-    height: 30px;
-    background-color: black;
+#webcam , #canvas-blended{
+    display: none;
 }
 
-#webcam {
-        display: none;
+#source{
+    position: relative;
+    left:160px;
+    top:50px;
 }
 
-#canvas-source, #canvas-highlights {
-        
-        position: absolute;
-        left: 0;
-        top: 0;
-        top: 50px;
-}
-
-#tut {
-    position: absolute;
-    right: 10px;
-    top: 50px;
+#canvas-source, #hotSpots {
+    width:70%;
+    position:absolute;
+    left:0;
+    top:0;
 }
 
 #hotSpots {
-    position: relative;
-    top: 50px;
-    height: 300px;
-    width: 300px;
-    border: 1em black dotted;
-
+    width:100px;
+    height: 100px;
+    border: .3em black dotted;
+    z-index: 10;
 }
 
-#canvas-blended {
-        display: none;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        opacity: 0;
+#tut {
+    z-index: 15;
+    width:22%;
+    left:480;
+    position: absolute;
+    left: 465px;
+    top: 348px;
 }
